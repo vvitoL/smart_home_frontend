@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from "react";
 
@@ -8,7 +7,6 @@ function App() {
 
     const [devices, setDevices] = useState()
     // let value = 0;
-    // console.log('running app.js');
     // console.log('my val', myValue);
 
     const myFavVal = localStorage.getItem('myFavVal');
