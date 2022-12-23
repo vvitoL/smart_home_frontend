@@ -3,7 +3,8 @@ import {useEffect, useState} from "react";
 import axios, {get} from "axios";
 import DeviceList from "./components/device-list";
 
-const url = 'http://127.0.0.1:8000/api/devices/'
+const url1 = 'http://127.0.0.1:8000/api/devices/'
+const url2 = 'http://localhost:8000/api/devices/1/changestate'
 
 function App() {
     const [value, setValue] = useState(0);
@@ -28,12 +29,21 @@ function App() {
 
     const fetchData = () => {
         axios
-            .get(url)
+            .get(url1)
             .then(res => {
                 // console.log(res)
                 // console.log(res.data)
                 setDevices(res.data)
 
+            })
+            .catch((err)=> console.log(err))
+    }
+
+    const handleChangeLights = () => {
+        axios
+            .get(url2)
+            .then(res => {
+                console.log(res.data)
             })
             .catch((err)=> console.log(err))
     }
@@ -55,6 +65,8 @@ function App() {
           <p>{myValue ?myValue :  '---'}</p>
           <button onClick={handleIncrement}>Increment</button>
           <button onClick={handleSaveMyValue}>Save Favourite</button>
+          <hr />
+          <button onClick={handleChangeLights}>Set the light</button>
           <hr />
           <a href="http://127.0.0.1:8000/api/devices/1/changestate/">
             <button>Gabinet</button>
