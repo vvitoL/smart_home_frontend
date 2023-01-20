@@ -1,10 +1,11 @@
 import './App.css';
 import {useEffect, useState} from "react";
-import axios, {get} from "axios";
+import axios from "axios";
 import DeviceList from "./components/device-list";
 
 const url1 = 'http://192.168.69.177:8000/api/devices/'
 const url2 = 'http://192.168.69.177:8000/api/devices/1/changestate'
+const url3 = 'http://192.168.69.177:8000/api/devices/2/changestate'
 
 function App() {
     const [value, setValue] = useState(0);
@@ -21,7 +22,7 @@ function App() {
         if (myFavVal) {
             setMyValue(myFavVal)
         }
-    }, [value]);
+    }, [value, myFavVal]);
 
     useEffect(() => {
         fetchData()
@@ -39,9 +40,18 @@ function App() {
             .catch((err)=> console.log(err))
     }
 
-    const handleChangeLights = () => {
+    const handleChangeLights = (light) => {
         axios
             .get(url2)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch((err)=> console.log(err))
+    }
+
+    const handleChangeLights2 = (light) => {
+        axios
+            .get(url3)
             .then(res => {
                 console.log(res.data)
             })
@@ -66,11 +76,9 @@ function App() {
           <button onClick={handleIncrement}>Increment</button>
           <button onClick={handleSaveMyValue}>Save Favourite</button>
           <hr />
-          <button onClick={handleChangeLights}>Set the light</button>
+          <button onClick={handleChangeLights}>Gabinet Główne Światło</button>
           <hr />
-          <a href="http://192.168.69.177:8000/api/devices/1/changestate/">
-            <button>Gabinet</button>
-          </a>
+          <button onClick={handleChangeLights2}>Gabinet LED RGB</button>
           <hr />
           <DeviceList data={devices}/>
       </header>
