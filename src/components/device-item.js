@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const PostItem = (props) => {
-    const {name, desc} = props
+    const {name, desc, id} = props
     const handleChangeLights = () => {
         axios
-            .get('http://192.168.69.155:8000/api/devices/2/changestate')
+            .get('http://192.168.69.155:8000/api/devices/' + id + '/changestate')
             .then(res => {
                 console.log(res.data)
             })
-            .catch((err)=> console.log(err))
+            .catch((err) => console.log(err))
     }
     return (
         <div>

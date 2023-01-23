@@ -6,8 +6,6 @@ import DeviceList from "./components/device-list";
 import 'bulma/css/bulma.css'
 
 const url1 = 'http://192.168.69.155:8000/api/devices/'
-const url2 = 'http://192.168.69.155:8000/api/devices/1/changestate'
-const url3 = 'http://192.168.69.155:8000/api/devices/2/changestate'
 
 function App() {
     const [value, setValue] = useState(0);
@@ -42,24 +40,6 @@ function App() {
             .catch((err)=> console.log(err))
     }
 
-    const handleChangeLights = (light) => {
-        axios
-            .get(url2)
-            .then(res => {
-                console.log(res.data)
-            })
-            .catch((err)=> console.log(err))
-    }
-
-    const handleChangeLights2 = (light) => {
-        axios
-            .get(url3)
-            .then(res => {
-                console.log(res.data)
-            })
-            .catch((err)=> console.log(err))
-    }
-
     const handleIncrement = (e) => {
         setValue(value+1);
     }
@@ -77,12 +57,6 @@ function App() {
           <p>{myValue ?myValue :  '---'}</p>
           <button onClick={handleIncrement}>Increment</button>
           <button onClick={handleSaveMyValue}>Save Favourite</button>
-          <hr />
-          <button onClick={handleChangeLights}>Gabinet Główne Światło</button>
-          <hr />
-          <button onClick={handleChangeLights2}>Gabinet LED RGB</button>
-          <hr />
-          {/*<Slider rangeSlideDisabled={true}/>*/}
           <hr />
           <DeviceList data={devices}/>
       </header>

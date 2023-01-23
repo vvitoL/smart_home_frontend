@@ -15,6 +15,7 @@ const DeviceList = (props) => {
                                     key={item.id}
                                     name={item.desc}
                                     desc={item.name}
+                                    id={item.id}
                                 />
                             </div>
                         </section>
