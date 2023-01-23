@@ -1,4 +1,5 @@
 import axios from "axios";
+import 'bulma/css/bulma.css'
 
 const PostItem = (props) => {
     const {name, desc, id} = props
@@ -12,11 +13,23 @@ const PostItem = (props) => {
     }
     return (
         <div>
+        <div className='column'>
             <div className='card'>
-                <div>{name}</div>
-                <div>{desc}</div>
-                <button onClick={handleChangeLights}>{name}</button>
+                <div className='card-image'>
+                    <figure className='is-1'>
+                        <img src='https://picsum.photos/150/150' alt='test logo'/>
+                    </figure>
+                </div>
+                <div className='card-content'>
+                    <div className='media-content'>
+                        <div className='title is-7'>{name}</div>
+                        <div className='subtitle is-6'>{desc}</div>
+                    </div>
+                </div>
+                <button className='is-large' onClick={handleChangeLights}>{name}</button>
+                <p className='text-danger'>.</p>
             </div>
+        </div>
         </div>
     );
 }

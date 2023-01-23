@@ -4,6 +4,7 @@ import axios from "axios";
 import DeviceList from "./components/device-list";
 // import 'react-range-slider-input/dist/style.css';
 import 'bulma/css/bulma.css'
+// import PostItem from "./components/device-item";
 
 const url1 = 'http://192.168.69.155:8000/api/devices/'
 
@@ -37,11 +38,11 @@ function App() {
                 setDevices(res.data)
 
             })
-            .catch((err)=> console.log(err))
+            .catch((err) => console.log(err))
     }
 
     const handleIncrement = (e) => {
-        setValue(value+1);
+        setValue(value + 1);
     }
 
     const handleSaveMyValue = () => {
@@ -49,19 +50,28 @@ function App() {
         localStorage.setItem('myFavVal', value)
         setMyValue(value);
     };
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div> Hello World.! </div>
-          <p>{value}</p>
-          <p>{myValue ?myValue :  '---'}</p>
-          <button onClick={handleIncrement}>Increment</button>
-          <button onClick={handleSaveMyValue}>Save Favourite</button>
-          <hr />
-          <DeviceList data={devices}/>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <section className="hero is-primary">
+                <div className='hero-body'>
+                    <div className='title is-4'> Smart Home App</div>
+                    <p>{value}</p>
+                    <p>{myValue ? myValue : '---'}</p>
+                    <button onClick={handleIncrement}>Increment</button>
+                    <button onClick={handleSaveMyValue}>Save Favourite</button>
+                </div>
+            </section>
+            <div>
+                <div className='container'>
+                    <section className='section'>
+                        <div className='columns is-2'>
+                            <DeviceList data={devices}/>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
