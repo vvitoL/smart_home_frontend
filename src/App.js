@@ -2,10 +2,12 @@ import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import DeviceList from "./components/device-list";
+// import 'react-range-slider-input/dist/style.css';
+import 'bulma/css/bulma.css'
 
-const url1 = 'http://192.168.69.177:8000/api/devices/'
-const url2 = 'http://192.168.69.177:8000/api/devices/1/changestate'
-const url3 = 'http://192.168.69.177:8000/api/devices/2/changestate'
+const url1 = 'http://192.168.69.155:8000/api/devices/'
+const url2 = 'http://192.168.69.155:8000/api/devices/1/changestate'
+const url3 = 'http://192.168.69.155:8000/api/devices/2/changestate'
 
 function App() {
     const [value, setValue] = useState(0);
@@ -79,6 +81,8 @@ function App() {
           <button onClick={handleChangeLights}>Gabinet Główne Światło</button>
           <hr />
           <button onClick={handleChangeLights2}>Gabinet LED RGB</button>
+          <hr />
+          {/*<Slider rangeSlideDisabled={true}/>*/}
           <hr />
           <DeviceList data={devices}/>
       </header>
