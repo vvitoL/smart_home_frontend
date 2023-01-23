@@ -20,7 +20,6 @@ const DeviceList = (props) => {
                 })}
             </div>
         </div>
-        // <div className='column'>hiho</div>
     );
 };
 
