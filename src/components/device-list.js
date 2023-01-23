@@ -7,7 +7,7 @@ const DeviceList = (props) => {
     const {data} = props;
     return (
         <div>
-            <div className='columns is-4'>
+            <div className='columns is-3'>
                 {data.map((item) => {
                     return (
                         <PostItem

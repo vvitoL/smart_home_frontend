@@ -26,7 +26,7 @@ const PostItem = (props) => {
                             <div className='subtitle is-6'>{desc}</div>
                         </div>
                     </div>
-                    <button className='is-large' onClick={handleChangeLights}>{name}</button>
+                    <button className="button is-size-7-desktop is-wrapped" onClick={handleChangeLights}>{name}</button>
                     <p className='text-danger'>.</p>
                 </div>
             </div>
