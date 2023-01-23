@@ -1,11 +1,12 @@
 import axios from "axios";
+import React from "react";
 import 'bulma/css/bulma.css'
 
 const PostItem = (props) => {
     const {name, desc, id} = props
     const handleChangeLights = () => {
         axios
-            .get('http://192.168.69.155:8000/api/devices/' + id + '/changestate')
+            .get('http://192.168.69.153:8000/api/devices/' + id + '/changestate')
             .then(res => {
                 console.log(res.data)
             })

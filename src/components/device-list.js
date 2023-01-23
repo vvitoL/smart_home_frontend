@@ -1,4 +1,5 @@
 import PostItem from "./device-item";
+import React from "react";
 import 'bulma/css/bulma.css'
 
 const DeviceList = (props) => {

@@ -1,12 +1,12 @@
 import './App.css';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import DeviceList from "./components/device-list";
 // import 'react-range-slider-input/dist/style.css';
 import 'bulma/css/bulma.css'
 // import PostItem from "./components/device-item";
 
-const url1 = 'http://192.168.69.155:8000/api/devices/'
+const url1 = 'http://192.168.69.153:8000/api/devices/'
 
 function App() {
     const [value, setValue] = useState(0);
