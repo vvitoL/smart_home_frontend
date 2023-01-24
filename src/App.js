@@ -2,44 +2,41 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import DeviceList from "./components/device-list";
-// import 'react-range-slider-input/dist/style.css';
+import DeviceShow from "./components/device-show";
 import 'bulma/css/bulma.css'
-// import PostItem from "./components/device-item";
 
-const url1 = 'http://192.168.69.153:8000/api/devices/'
+function getRandomDevice() {
+    const randoms = ['bulb', 'move_sensor', 'switch', 'contact', 'temp_sensor'];
+    return randoms[Math.floor(Math.random() * randoms.length)]
+}
 
 function App() {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(21);
     const [myValue, setMyValue] = useState(null);
+    const myFavVal = localStorage.getItem('myFavVal');
+
+    const [randoms, setRandoms] = useState([])
 
     const [devices, setDevices] = useState([])
-    // let value = 0;
-    // console.log('my val', myValue);
 
-    const myFavVal = localStorage.getItem('myFavVal');
-    // console.log('my fav val', myFavVal);
+    const handleClick = () => {
+        setRandoms([...randoms, getRandomDevice()])
+    }
+
+    const renderedDevices = randoms.map((random_device, index) => {
+        return <DeviceShow type={random_device} key={index} />
+    })
 
     useEffect(() => {
+        axios
+            .get('http://192.168.69.153:8000/api/devices/')
+            .then(res => {
+                setDevices(res.data)
+            })
         if (myFavVal) {
             setMyValue(myFavVal)
         }
     }, [value, myFavVal]);
-
-    useEffect(() => {
-        fetchData()
-    }, []);
-
-    const fetchData = () => {
-        axios
-            .get(url1)
-            .then(res => {
-                // console.log(res)
-                // console.log(res.data)
-                setDevices(res.data)
-
-            })
-            .catch((err) => console.log(err))
-    }
 
     const handleIncrement = (e) => {
         setValue(value + 1);
@@ -54,11 +51,19 @@ function App() {
         <div>
             <section className="hero is-primary">
                 <div className='hero-body'>
-                    <div className='title is-4'> Smart Home App</div>
-                    <p>{value}</p>
-                    <p>{myValue ? myValue : '---'}</p>
-                    <button onClick={handleIncrement}>Increment</button>
-                    <button onClick={handleSaveMyValue}>Save Favourite</button>
+                    <div className='title is-3'> Smart Home App</div>
+                    <div className='columns'>
+                        <div className='column'>
+                            <p>{value}</p>
+                            <p>{myValue ? myValue : '---'}</p>
+                            <button onClick={handleIncrement}>Increment</button>
+                            <button onClick={handleSaveMyValue}>Save Favourite</button>
+                        </div>
+                        <div className='column'>
+                            <button onClick={handleClick}>Add random device</button>
+                            <div>{renderedDevices}</div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <div>
