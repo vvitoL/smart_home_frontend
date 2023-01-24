@@ -51,7 +51,7 @@ function App() {
         <div>
             <section className="hero is-primary">
                 <div className='hero-body'>
-                    <div className='title is-4'> Smart Home App</div>
+                    <div className='title is-3'> Smart Home App</div>
                     <div className='columns'>
                         <div className='column'>
                             <p>{value}</p>

@@ -1,4 +1,4 @@
-import PostItem from "./device-item";
+import DeviceItem from "./device-item";
 import React from "react";
 import 'bulma/css/bulma.css'
 
@@ -11,7 +11,7 @@ const DeviceList = (props) => {
             <div className='columns is-3'>
                 {data.map((item) => {
                     return (
-                        <PostItem
+                        <DeviceItem
                             key={item.id}
                             name={item.desc}
                             desc={item.name}

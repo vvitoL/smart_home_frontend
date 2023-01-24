@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import 'bulma/css/bulma.css'
 
-const PostItem = (props) => {
+const DeviceItem = (props) => {
     const {name, desc, id} = props
     const handleChangeLights = () => {
         axios
@@ -15,7 +15,11 @@ const PostItem = (props) => {
     return (
         <div>
             <div className='column'>
-                <div className='card'>
+                <div className='card' style={{
+                    height: '350px',
+                    width: '150px',
+                    backgroundColor: 'lightgray',
+                }}>
                     <div className='card-image'>
                         <figure className='is-1'>
                             <img src='https://picsum.photos/150/150' alt='test logo'/>
@@ -27,7 +31,8 @@ const PostItem = (props) => {
                             <div className='subtitle is-6'>{desc}</div>
                         </div>
                     </div>
-                    <button className="button is-size-7-desktop is-wrapped" onClick={handleChangeLights}>Change State</button>
+                    <button className="button is-size-7-desktop is-wrapped" onClick={handleChangeLights}>Change State
+                    </button>
                     <p className='text-danger'>.</p>
                 </div>
             </div>
@@ -35,4 +40,4 @@ const PostItem = (props) => {
     );
 }
 
-export default PostItem;
+export default DeviceItem;
