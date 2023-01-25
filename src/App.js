@@ -6,7 +6,7 @@ import DeviceShow from "./components/device-show";
 import 'bulma/css/bulma.css'
 
 function getRandomDevice() {
-    const randoms = ['bulb', 'move_sensor', 'switch', 'contact', 'temp_sensor'];
+    const randoms = ['light_bulb', 'move_sensor', 'power_switch', 'power_contact', 'temp_sensor'];
     return randoms[Math.floor(Math.random() * randoms.length)]
 }
 
@@ -59,10 +59,7 @@ function App() {
                             <button onClick={handleIncrement}>Increment</button>
                             <button onClick={handleSaveMyValue}>Save Favourite</button>
                         </div>
-                        <div className='column'>
-                            <button onClick={handleClick}>Add random device</button>
-                            <div>{renderedDevices}</div>
-                        </div>
+                        <div className='column'> VVito </div>
                     </div>
                 </div>
             </section>
@@ -75,6 +72,18 @@ function App() {
                     </section>
                 </div>
             </div>
+            <section className="hero is-primary">
+                <div className='hero-body'>
+                    <div className='title is-3'>Tests</div>
+                    <div className='columns'>
+                        <div className='column'>
+                            <button onClick={handleClick}>Add random device</button>
+                            <p></p>
+                            <div>{renderedDevices}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
