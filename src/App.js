@@ -6,7 +6,7 @@ import DeviceShow from "./components/device-show";
 import 'bulma/css/bulma.css'
 
 function getRandomDevice() {
-    const randoms = ['bulb', 'move_sensor', 'switch', 'contact', 'temp_sensor'];
+    const randoms = ['light_bulb', 'move_sensor', 'power_switch', 'power_contact', 'temp_sensor'];
     return randoms[Math.floor(Math.random() * randoms.length)]
 }
 
@@ -24,7 +24,7 @@ function App() {
     }
 
     const renderedDevices = randoms.map((random_device, index) => {
-        return <DeviceShow type={random_device} key={index} />
+        return <DeviceShow type={random_device} key={index}/>
     })
 
     useEffect(() => {
@@ -49,7 +49,7 @@ function App() {
     };
     return (
         <div>
-            <section className="hero is-primary">
+            <section className="hero is-primary navbar-header">
                 <div className='hero-body'>
                     <div className='title is-3'> Smart Home App</div>
                     <div className='columns'>
@@ -59,14 +59,11 @@ function App() {
                             <button onClick={handleIncrement}>Increment</button>
                             <button onClick={handleSaveMyValue}>Save Favourite</button>
                         </div>
-                        <div className='column'>
-                            <button onClick={handleClick}>Add random device</button>
-                            <div>{renderedDevices}</div>
-                        </div>
+                        <div className='column'> VVito</div>
                     </div>
                 </div>
             </section>
-            <div>
+            <div className='hljs-body'>
                 <div className='container'>
                     <section className='section'>
                         <div className='columns is-2'>
@@ -75,6 +72,16 @@ function App() {
                     </section>
                 </div>
             </div>
+            <section className="hero is-primary footer">
+                <div className='hero-body'>
+                    <div className='title is-3'>Tests</div>
+                    <div className='deviceApp'>
+                        <button onClick={handleClick}>Add random device</button>
+                        <p>.</p>
+                        <div className='device-list'>{renderedDevices}</div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

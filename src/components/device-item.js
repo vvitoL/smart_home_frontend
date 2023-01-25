@@ -16,24 +16,21 @@ const DeviceItem = (props) => {
         <div>
             <div className='column'>
                 <div className='card' style={{
-                    height: '350px',
-                    width: '150px',
+                    height: '260px',
+                    width: '130px',
                     backgroundColor: 'lightgray',
                 }}>
                     <div className='card-image'>
                         <figure className='is-1'>
-                            <img src='https://picsum.photos/150/150' alt='test logo'/>
+                            <img onClick={handleChangeLights} src='https://picsum.photos/150/150' alt='test logo'/>
                         </figure>
                     </div>
                     <div className='card-content'>
                         <div className='media-content'>
                             <div className='title is-7'>{name}</div>
-                            <div className='subtitle is-6'>{desc}</div>
+                            <div className='subtitle is-7'>{desc}</div>
                         </div>
                     </div>
-                    <button className="button is-size-7-desktop is-wrapped" onClick={handleChangeLights}>Change State
-                    </button>
-                    <p className='text-danger'>.</p>
                 </div>
             </div>
         </div>
