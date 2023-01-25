@@ -1,6 +1,7 @@
 import DeviceItem from "./device-item";
 import React from "react";
 import 'bulma/css/bulma.css'
+import '../App.css'
 
 const DeviceList = (props) => {
     console.log('devices list', props.data)
@@ -8,7 +9,7 @@ const DeviceList = (props) => {
     const {data} = props;
     return (
         <div>
-            <div className='columns is-3'>
+            <div className='columns is-3 device-list'>
                 {data.map((item) => {
                     return (
                         <DeviceItem
