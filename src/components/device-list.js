@@ -17,6 +17,7 @@ const DeviceList = (props) => {
                             name={item.desc}
                             desc={item.name}
                             id={item.id}
+                            extra_info_kind={item.extra_info.device_kind}
                         />
                     )
                 })}
